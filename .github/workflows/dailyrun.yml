@@ -11,6 +11,9 @@ on:
 permissions:
   contents: write
 
+env:
+  ITGLUE_TOOL_PREFIX: itglue_
+
 jobs:
   update-itgapi:
     runs-on: ubuntu-latest
@@ -38,6 +41,14 @@ jobs:
           # Extra guard: refuse output with no API paths.
           if ! grep -q '^paths:' itgapi.yaml.new || ! grep -qE '^  /' itgapi.yaml.new; then
             echo "::error::Generated spec has no paths - refusing to overwrite itgapi.yaml" >&2
+            exit 1
+          fi
+          # Every operation must carry a prefixed operationId (= tool name).
+          ops=$(grep -cE '^    (get|post|put|patch|delete):$' itgapi.yaml.new || true)
+          ids=$(grep -cE "^      operationId: ${ITGLUE_TOOL_PREFIX}[A-Za-z0-9_]+$" itgapi.yaml.new || true)
+          echo "Operations: $ops, prefixed operationIds: $ids"
+          if [ "$ops" -eq 0 ] || [ "$ops" -ne "$ids" ]; then
+            echo "::error::Not every operation has an operationId starting with '${ITGLUE_TOOL_PREFIX}'" >&2
             exit 1
           fi
           mv itgapi.yaml.new itgapi.yaml

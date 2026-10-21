@@ -1,3 +1,4 @@
+import os
 import sys
 import requests
 from bs4 import BeautifulSoup
@@ -30,7 +31,7 @@ openapi_spec = {
         'title': 'ITGlue API',
         'version': '1.0.0',
         'description': (
-            "Generated from https://github.com/jmaddington/ITG-Glue-OpenAPI\n\n"
+            "Generated from https://github.com/Wolkenhof/ITG-Glue-OpenAPI\n\n"
             "This document strives to accurately represent IT Glue's API in the OpenAPI 3.0 format, but is best effort only. This is NOT\n"
             "an official IT Glue or Kaseya document.\n\n"
             "Find official documentation at https://api.itglue.com/developer/\n"
@@ -74,6 +75,56 @@ openapi_spec = {
         }
     ]
 }
+
+TOOL_PREFIX = os.environ.get('ITGLUE_TOOL_PREFIX', 'itglue_')
+MAX_OPERATION_ID_LENGTH = 64  # tool-name limit of most LLM/MCP clients
+
+def _clean_name(name):
+    name = re.sub(r'[^A-Za-z0-9_]', '_', name)
+    return re.sub(r'_+', '_', name).strip('_')
+
+def assign_operation_ids(paths):
+    """Set a unique, prefixed operationId on every operation.
+
+    Scheme: <prefix><method>_<static path segments>, e.g.
+      DELETE /configuration_types/{id}  -> itglue_delete_configuration_types
+      PATCH  /documents/{id}/publish    -> itglue_patch_documents_publish
+    If a collection and its item endpoint would get the same name
+    (GET /organizations vs GET /organizations/{id}), the item endpoint gets
+    "_by_<param>": itglue_get_organizations / itglue_get_organizations_by_id.
+    Names longer than the limit drop the "relationships" segment.
+    """
+    def base_name(method, path, with_param):
+        segments = [s for s in path.strip('/').split('/') if s]
+        static = [s for s in segments if not s.startswith('{')]
+        parts = [method] + static
+        if with_param and segments and segments[-1].startswith('{'):
+            parts.append('by_' + segments[-1].strip('{}'))
+        name = TOOL_PREFIX + _clean_name('_'.join(parts))
+        if len(name) > MAX_OPERATION_ID_LENGTH:
+            parts = [p for p in parts if p != 'relationships']
+            name = TOOL_PREFIX + _clean_name('_'.join(parts))
+        return name[:MAX_OPERATION_ID_LENGTH]
+
+    operations = [(path, method) for path, methods in paths.items() for method in methods]
+    counts = {}
+    for path, method in operations:
+        name = base_name(method, path, False)
+        counts[name] = counts.get(name, 0) + 1
+
+    used = set()
+    for path, method in operations:
+        name = base_name(method, path, False)
+        if counts[name] > 1:
+            name = base_name(method, path, True)
+        op_id, n = name, 2
+        while op_id in used:  # last-resort safety net
+            suffix = f"_{n}"
+            op_id = name[:MAX_OPERATION_ID_LENGTH - len(suffix)] + suffix
+            n += 1
+        used.add(op_id)
+        # Put operationId first so it is easy to spot in the YAML.
+        paths[path][method] = {'operationId': op_id, **paths[path][method]}
 
 # Helper function to determine parameter type
 def get_param_type(validations):
@@ -314,6 +365,9 @@ if not openapi_spec['paths']:
 openapi_spec['paths'] = dict(sorted(openapi_spec['paths'].items()))
 if 'schemas' in openapi_spec['components']:
     openapi_spec['components']['schemas'] = dict(sorted(openapi_spec['components']['schemas'].items()))
+
+# Step 6b: Assign prefixed operationIds (after sorting, so names are stable)
+assign_operation_ids(openapi_spec['paths'])
 
 # Step 7: Convert the OpenAPI specification to YAML format
 yaml_output = yaml.dump(openapi_spec, sort_keys=False, allow_unicode=True)

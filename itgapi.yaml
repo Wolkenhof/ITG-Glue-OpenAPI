@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: ITGlue API
   version: 1.0.0
-  description: 'Generated from https://github.com/jmaddington/ITG-Glue-OpenAPI
+  description: 'Generated from https://github.com/Wolkenhof/ITG-Glue-OpenAPI
 
 
     This document strives to accurately represent IT Glue''s API in the OpenAPI 3.0
@@ -39,6 +39,7 @@ servers:
 paths:
   /checklists:
     get:
+      operationId: itglue_get_checklists
       summary: ''
       description: 'Returns a list of checklists in your account.
 
@@ -124,6 +125,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_checklists
       summary: ''
       description: Updates a list of checklists.
       parameters:
@@ -239,6 +241,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_checklists
       summary: ''
       description: Deletes one or more specified checklists.
       parameters:
@@ -307,6 +310,7 @@ paths:
       - apiKeyAuth: []
   /checklists/{id}:
     get:
+      operationId: itglue_get_checklists_by_id
       summary: ''
       description: 'Returns the details of an existing checklist.
 
@@ -373,6 +377,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_checklists_by_id
       summary: ''
       description: Updates an existing checklist. Returns the updated object if successful.
       parameters:
@@ -486,6 +491,7 @@ paths:
       - apiKeyAuth: []
   /configuration_interfaces:
     post:
+      operationId: itglue_post_configuration_interfaces
       summary: ''
       description: Creates a new configuration interface under the configuration specified
         in the ID parameter.         Returns the created object if successful. Use
@@ -582,6 +588,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_configuration_interfaces
       summary: ''
       description: Updates a list of configuration interfaces, also known as bulk
         updating. Bulk updates using a nested         relationships route are not
@@ -699,6 +706,7 @@ paths:
       - apiKeyAuth: []
   /configuration_interfaces/{id}:
     get:
+      operationId: itglue_get_configuration_interfaces
       summary: ''
       description: 'Returns the details of an existing configuration interface.
 
@@ -756,6 +764,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_configuration_interfaces_by_id
       summary: ''
       description: Updates the details of an existing configuration interface. Returns
         422 Bad Request error         if trying to update an externally synced, primary
@@ -858,6 +867,7 @@ paths:
       - apiKeyAuth: []
   /configuration_statuses:
     get:
+      operationId: itglue_get_configuration_statuses
       summary: ''
       description: 'Returns a list of the configuration statuses in your account.
 
@@ -919,6 +929,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_configuration_statuses
       summary: ''
       description: Creates a new configuration status in your account. Returns the
         created object if successful.
@@ -966,6 +977,7 @@ paths:
       - apiKeyAuth: []
   /configuration_statuses/{id}:
     get:
+      operationId: itglue_get_configuration_statuses_by_id
       summary: ''
       description: 'Returns the details of an existing configuration status.
 
@@ -1014,6 +1026,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_configuration_statuses
       summary: ''
       description: Updates a configuration status in your account. Returns 422 Bad
         Request error if trying to update an externally synced record.
@@ -1069,6 +1082,7 @@ paths:
       - apiKeyAuth: []
   /configuration_types:
     get:
+      operationId: itglue_get_configuration_types
       summary: ''
       description: 'Returns a list of configuration types in your account.
 
@@ -1130,6 +1144,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_configuration_types
       summary: ''
       description: Creates a new configuration type in your account. Returns the created
         object if successful.
@@ -1177,6 +1192,7 @@ paths:
       - apiKeyAuth: []
   /configuration_types/{id}:
     get:
+      operationId: itglue_get_configuration_types_by_id
       summary: ''
       description: 'Returns the details of an existing configuration type.
 
@@ -1225,6 +1241,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_configuration_types
       summary: ''
       description: Updates a configuration type in your account. Returns 422 Bad Request
         error if trying to update an externally synced record.
@@ -1279,6 +1296,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_configuration_types
       summary: ''
       description: Delete the given configuration type. Returns 204 if successful.
         Configuration types actively synced with an adapter cannot be deleted (423).
@@ -1314,6 +1332,7 @@ paths:
       - apiKeyAuth: []
   /configurations:
     get:
+      operationId: itglue_get_configurations
       summary: ''
       description: 'Returns a list of configurations for all organizations or for
         a specified organization.
@@ -1480,6 +1499,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_configurations
       summary: ''
       description: Creates a configuration under the organization specified in the
         ID parameter. Returns the created object         if successful. Use the nested
@@ -1769,6 +1789,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_configurations
       summary: ''
       description: 'Updates a list of items, also known as bulk updating. Bulk updates
         using a nested relationships route are not supported.         Returns 422
@@ -2088,6 +2109,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_configurations
       summary: ''
       description: Deletes one or more specified configurations. Returns the deleted
         configurations and a 200 status code if successful.
@@ -2242,6 +2264,7 @@ paths:
       - apiKeyAuth: []
   /configurations/{configuration_id}/relationships/configuration_interfaces:
     get:
+      operationId: itglue_get_configurations_relationships_configuration_interfaces
       summary: ''
       description: 'Returns the configuration interfaces for a specified configuration.
 
@@ -2320,6 +2343,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_configurations_configuration_interfaces
       summary: ''
       description: Creates a new configuration interface under the configuration specified
         in the ID parameter.         Returns the created object if successful. Use
@@ -2417,6 +2441,7 @@ paths:
       - apiKeyAuth: []
   /configurations/{configuration_id}/relationships/configuration_interfaces/{id}:
     get:
+      operationId: itglue_get_configurations_configuration_interfaces_by_id
       summary: ''
       description: 'Returns the details of an existing configuration interface.
 
@@ -2474,6 +2499,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_configurations_configuration_interfaces
       summary: ''
       description: Updates the details of an existing configuration interface. Returns
         422 Bad Request error         if trying to update an externally synced, primary
@@ -2575,6 +2601,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_configurations_configuration_interfaces
       summary: ''
       description: Delete a configuration interface. Returns a 204 status code if
         successful.
@@ -2606,6 +2633,7 @@ paths:
       - apiKeyAuth: []
   /configurations/{id}:
     get:
+      operationId: itglue_get_configurations_by_id
       summary: ''
       description: 'Returns the details of an existing configuration.
 
@@ -2672,6 +2700,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_configurations_by_id
       summary: ''
       description: 'Updates the details of an existing configuration.         Returns
         422 Unprocessable Entity error if any relationships are present in the request.         Returns
@@ -2903,6 +2932,7 @@ paths:
       - apiKeyAuth: []
   /contact_types:
     get:
+      operationId: itglue_get_contact_types
       summary: ''
       description: 'Returns a list of contact types in your account.
 
@@ -2964,6 +2994,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_contact_types
       summary: ''
       description: Creates a new contact type in your account. Returns the created
         object if successful.
@@ -3011,6 +3042,7 @@ paths:
       - apiKeyAuth: []
   /contact_types/{id}:
     get:
+      operationId: itglue_get_contact_types_by_id
       summary: ''
       description: 'Returns the details of an existing contact type.
 
@@ -3059,6 +3091,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_contact_types
       summary: ''
       description: Updates a contact type in your account. Returns 422 Bad Request
         error if trying to update         an externally synced record.
@@ -3113,6 +3146,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_contact_types
       summary: ''
       description: Destroys a single contact type by its ID. Returns a 204 status
         code if successful.
@@ -3145,6 +3179,7 @@ paths:
       - apiKeyAuth: []
   /contacts:
     get:
+      operationId: itglue_get_contacts
       summary: ''
       description: 'Returns a list of contacts for all organizations or for a specified
         organization.
@@ -3280,6 +3315,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_contacts
       summary: ''
       description: Creates a contact under the organization specified in the organization_id
         parameter.        Returns the created object if successful. Use the nested
@@ -3474,6 +3510,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_contacts
       summary: ''
       description: Updates a list of contacts, also known as bulk updating. Bulk updates
         using a nested relationships         route are not supported. Returns 422
@@ -3656,6 +3693,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_contacts
       summary: ''
       description: Deletes one or more specified contacts. Returns the deleted contacts
         and a 200 status code if successful.
@@ -3794,6 +3832,7 @@ paths:
       - apiKeyAuth: []
   /contacts/{id}:
     get:
+      operationId: itglue_get_contacts_by_id
       summary: ''
       description: 'Returns the details of an existing contact.
 
@@ -3860,6 +3899,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_contacts_by_id
       summary: ''
       description: Updates the details of an existing contact. Returns 422 Bad Request
         error if trying to update an         externally synced record.
@@ -4059,6 +4099,7 @@ paths:
       - apiKeyAuth: []
   /countries:
     get:
+      operationId: itglue_get_countries
       summary: ''
       description: 'Returns a list of supported countries.
 
@@ -4127,6 +4168,7 @@ paths:
       - apiKeyAuth: []
   /countries/{country_id}/relationships/regions:
     get:
+      operationId: itglue_get_countries_relationships_regions
       summary: ''
       description: 'Returns a list of supported regions.
 
@@ -4210,6 +4252,7 @@ paths:
       - apiKeyAuth: []
   /countries/{country_id}/relationships/regions/{id}:
     get:
+      operationId: itglue_get_countries_relationships_regions_by_id
       summary: ''
       description: 'Returns the details of one of the supported regions.
 
@@ -4268,6 +4311,7 @@ paths:
       - apiKeyAuth: []
   /countries/{id}:
     get:
+      operationId: itglue_get_countries_by_id
       summary: ''
       description: 'Returns the details of one of the supported countries.
 
@@ -4317,6 +4361,7 @@ paths:
       - apiKeyAuth: []
   /document_folders:
     patch:
+      operationId: itglue_patch_document_folders
       summary: ''
       description: Updates a list of document folders, also known as bulk updating.
         Bulk updates using a nested relationships route are not supported.
@@ -4426,6 +4471,7 @@ paths:
       - apiKeyAuth: []
   /document_images:
     post:
+      operationId: itglue_post_document_images
       summary: ''
       description: Creates a new document image. Images are placed using the 'target'
         attribute which specifies whether the image is for a gallery or inline in
@@ -4485,6 +4531,7 @@ paths:
       - apiKeyAuth: []
   /document_images/{id}:
     get:
+      operationId: itglue_get_document_images
       summary: ''
       description: 'Returns details of a specific document image including URLs for
         all size variants.
@@ -4534,6 +4581,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_document_images
       summary: ''
       description: Deletes the specified document image and all its size variants.
       parameters:
@@ -4556,6 +4604,7 @@ paths:
       - apiKeyAuth: []
   /documents:
     post:
+      operationId: itglue_post_documents
       summary: ''
       description: Creates a new document under the organization specified in the
         ID parameter. Returns the created object if successful.
@@ -4709,6 +4758,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_documents
       summary: ''
       description: Updates a list of items, also known as bulk updating.
       parameters:
@@ -4827,6 +4877,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_documents
       summary: ''
       description: Deletes one or more specified documents. Returns the deleted documents
         and a 200 status code if successful.
@@ -4981,6 +5032,7 @@ paths:
       - apiKeyAuth: []
   /documents/{document_id}/relationships/sections:
     get:
+      operationId: itglue_get_documents_relationships_sections
       summary: ''
       description: 'Returns a list of sections for the specified document, ordered
         by sort. Sections are polymorphic and contain different attributes based on
@@ -5061,6 +5113,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_documents_relationships_sections
       summary: ''
       description: Creates a new section in the specified document. The resource_type
         attribute determines which type of section is created and which additional
@@ -5155,6 +5208,7 @@ paths:
       - apiKeyAuth: []
   /documents/{document_id}/relationships/sections/{id}:
     get:
+      operationId: itglue_get_documents_relationships_sections_by_id
       summary: ''
       description: 'Returns details of a specific document section. The attributes
         returned depend on the resource_type.
@@ -5211,6 +5265,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_documents_relationships_sections
       summary: ''
       description: Updates an existing section. Only attributes specific to the section's
         resource_type can be updated. The resource_type itself cannot be changed.
@@ -5311,6 +5366,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_documents_relationships_sections
       summary: ''
       description: Deletes the specified section and its associated polymorphic resource.
       parameters:
@@ -5342,6 +5398,7 @@ paths:
       - apiKeyAuth: []
   /documents/{id}:
     get:
+      operationId: itglue_get_documents
       summary: ''
       description: 'Endpoint to retrieve complete document information including all
         sections and embedded content.
@@ -5409,6 +5466,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_documents_by_id
       summary: ''
       description: Updates an existing document. Returns the updated object if successful.
       parameters:
@@ -5521,6 +5579,7 @@ paths:
       - apiKeyAuth: []
   /documents/{id}/publish:
     patch:
+      operationId: itglue_patch_documents_publish
       summary: ''
       description: Publishes a document by setting the published_at timestamp, the
         publisher information, and serializing the document's content.
@@ -5559,6 +5618,7 @@ paths:
       - apiKeyAuth: []
   /domains:
     get:
+      operationId: itglue_get_domains
       summary: ''
       description: 'Returns a list of domains for all organizations or for a specified
         organization.
@@ -5646,6 +5706,7 @@ paths:
       - apiKeyAuth: []
   /expirations:
     get:
+      operationId: itglue_get_expirations
       summary: ''
       description: 'Returns a list of expirations for all organizations or for a specified
         organization.
@@ -5771,6 +5832,7 @@ paths:
       - apiKeyAuth: []
   /expirations/{id}:
     get:
+      operationId: itglue_get_expirations_by_id
       summary: ''
       description: 'Returns a single expiration with the given ID or a single expiration
         for a specified organization.
@@ -5830,6 +5892,7 @@ paths:
       - apiKeyAuth: []
   /exports:
     get:
+      operationId: itglue_get_exports
       summary: ''
       description: 'Returns a list of exports in your account.
 
@@ -5891,6 +5954,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_exports
       summary: ''
       description: Creates a new export under the current account. The new export
         will be for a single organization if organization_id is specified; otherwise
@@ -5972,6 +6036,7 @@ paths:
       - apiKeyAuth: []
   /exports/{id}:
     get:
+      operationId: itglue_get_exports_by_id
       summary: ''
       description: '''Retrieve a particular export for current account.''
 
@@ -6028,6 +6093,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_exports
       summary: ''
       description: Delete an export. Returns a 204 status code if successful.
       parameters:
@@ -6052,6 +6118,7 @@ paths:
       - apiKeyAuth: []
   /flexible_asset_types:
     get:
+      operationId: itglue_get_flexible_asset_types
       summary: ''
       description: 'Returns a list of flexible asset types in your account.
 
@@ -6140,6 +6207,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_flexible_asset_types
       summary: ''
       description: Creates a new flexible asset type in your account. Returns the
         created object if successful. Use the nested relationships route to add multiple
@@ -6419,6 +6487,7 @@ paths:
       - apiKeyAuth: []
   /flexible_asset_types/{id}:
     get:
+      operationId: itglue_get_flexible_asset_types_by_id
       summary: ''
       description: 'Returns the details of an existing flexible asset type.
 
@@ -6476,6 +6545,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_flexible_asset_types
       summary: ''
       description: Updates the details of an existing flexible asset type in your
         account. Returns 422 Unprocessable Entity error if any relationships are present
@@ -6650,6 +6720,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_flexible_asset_types
       summary: ''
       description: Destroys a single flexible asset type with its ID. Returns a 204
         status code if successful.
@@ -6680,6 +6751,7 @@ paths:
       - apiKeyAuth: []
   /flexible_assets:
     get:
+      operationId: itglue_get_flexible_assets
       summary: ''
       description: 'Returns a list of flexible assets based on the unique ID of the
         flexible asset type.
@@ -6763,6 +6835,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_flexible_assets
       summary: ''
       description: Creates a new flexible asset.
       parameters:
@@ -6836,6 +6909,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_flexible_assets
       summary: ''
       description: Updates a list of flexible assets, also known as bulk updating.
         Bulk updates using         a nested relationships route are not supported.
@@ -6917,6 +6991,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_flexible_assets
       summary: ''
       description: Deletes one or more specified flexible assets. Returns the deleted
         flexible assets and a 200 status code if successful.
@@ -7013,6 +7088,7 @@ paths:
       - apiKeyAuth: []
   /flexible_assets/{id}:
     get:
+      operationId: itglue_get_flexible_assets_by_id
       summary: ''
       description: 'Returns the details of an existing flexible asset.
 
@@ -7070,6 +7146,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_flexible_assets_by_id
       summary: ''
       description: Updates a flexible asset in your account.
       parameters:
@@ -7147,6 +7224,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_flexible_assets_by_id
       summary: ''
       description: Destroys a single flexible asset with its ID. Returns a 204 status
         code if successful.
@@ -7172,6 +7250,7 @@ paths:
       - apiKeyAuth: []
   /groups:
     get:
+      operationId: itglue_get_groups
       summary: ''
       description: 'Returns a list of groups in your account.
 
@@ -7242,6 +7321,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_groups
       summary: ''
       description: Creates a group.
       parameters:
@@ -7324,6 +7404,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_groups
       summary: ''
       description: "Updates a list of groups in bulk. The bulk update PATCH format\
         \ is similar to the response from a GET on a list resource. It accepts a partial\
@@ -7418,6 +7499,7 @@ paths:
       - apiKeyAuth: []
   /groups/{id}:
     get:
+      operationId: itglue_get_groups_by_id
       summary: ''
       description: 'Returns the details of an existing group.
 
@@ -7475,6 +7557,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_groups
       summary: ''
       description: Deletes a group.
       parameters:
@@ -7498,6 +7581,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_groups_by_id
       summary: ''
       description: Updates a group.
       parameters:
@@ -7587,6 +7671,7 @@ paths:
       - apiKeyAuth: []
   /locations:
     get:
+      operationId: itglue_get_locations
       summary: ''
       description: 'Returns a list of locations for all organizations or for a specified
         organization.
@@ -7712,6 +7797,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_locations
       summary: ''
       description: Creates a new location under the specified organization. The :organization_id
         is specified         in the URL or in the request body for `/locations` route.
@@ -7850,6 +7936,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_locations
       summary: ''
       description: Updates a list of locations, also known as bulk updating. Bulk
         updates using a nested relationships         route are not supported. Returns
@@ -8044,6 +8131,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_locations
       summary: ''
       description: Deletes one or more specified locations. Returns the deleted locations
         and a 200 status code if successful.
@@ -8161,6 +8249,7 @@ paths:
       - apiKeyAuth: []
   /locations/{id}:
     get:
+      operationId: itglue_get_locations_by_id
       summary: ''
       description: 'Returns the details of an existing location.
 
@@ -8227,6 +8316,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_locations_by_id
       summary: ''
       description: Updates the details of an existing location. Returns 422 Bad Request
         error if trying to update an         externally synced record.
@@ -8370,6 +8460,7 @@ paths:
       - apiKeyAuth: []
   /logs:
     get:
+      operationId: itglue_get_logs
       summary: ''
       description: 'Get all activity logs of the account for most recent 30 days.
 
@@ -8435,6 +8526,7 @@ paths:
       - apiKeyAuth: []
   /manufacturers:
     get:
+      operationId: itglue_get_manufacturers
       summary: ''
       description: 'Returns a list of the manufacturer names in your account.
 
@@ -8496,6 +8588,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_manufacturers
       summary: ''
       description: Creates a new manufacturer name. Returns the created object if
         successful.
@@ -8543,6 +8636,7 @@ paths:
       - apiKeyAuth: []
   /manufacturers/{id}:
     get:
+      operationId: itglue_get_manufacturers_by_id
       summary: ''
       description: 'Returns the details of an existing manufacturer name.
 
@@ -8591,6 +8685,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_manufacturers
       summary: ''
       description: Updates an existing manufacturer name.        Returns 422 Bad Request
         error if trying to update an externally synced record.
@@ -8646,6 +8741,7 @@ paths:
       - apiKeyAuth: []
   /manufacturers/{manufacturer_id}/relationships/models:
     get:
+      operationId: itglue_get_manufacturers_relationships_models
       summary: ''
       description: 'Returns a list of model names for all manufacturers or for a specified
         manufacturer.
@@ -8719,6 +8815,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_manufacturers_relationships_models
       summary: ''
       description: Creates a model name under the manufacturer specified in the ID
         parameter. Returns the created object if successful. Use the nested relationships
@@ -8791,6 +8888,7 @@ paths:
       - apiKeyAuth: []
   /manufacturers/{manufacturer_id}/relationships/models/{id}:
     get:
+      operationId: itglue_get_manufacturers_relationships_models_by_id
       summary: ''
       description: 'Returns the details of an existing model name.
 
@@ -8848,6 +8946,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_manufacturers_relationships_models
       summary: ''
       description: Updates an existing model name. Returns 422 Bad Request error if
         trying to update an externally synced record.
@@ -8925,6 +9024,7 @@ paths:
       - apiKeyAuth: []
   /models:
     get:
+      operationId: itglue_get_models
       summary: ''
       description: 'Returns a list of model names for all manufacturers or for a specified
         manufacturer.
@@ -8998,6 +9098,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_models
       summary: ''
       description: Creates a model name under the manufacturer specified in the ID
         parameter. Returns the created object if successful. Use the nested relationships
@@ -9069,6 +9170,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_models
       summary: ''
       description: Updates a list of model names, also known as bulk updating. Bulk
         updates using a nested relationships         route are not supported. Returns
@@ -9155,6 +9257,7 @@ paths:
       - apiKeyAuth: []
   /models/{id}:
     get:
+      operationId: itglue_get_models_by_id
       summary: ''
       description: 'Returns the details of an existing model name.
 
@@ -9212,6 +9315,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_models_by_id
       summary: ''
       description: Updates an existing model name. Returns 422 Bad Request error if
         trying to update an externally synced record.
@@ -9289,6 +9393,7 @@ paths:
       - apiKeyAuth: []
   /operating_systems:
     get:
+      operationId: itglue_get_operating_systems
       summary: ''
       description: 'Returns a list of supported operating systems.
 
@@ -9351,6 +9456,7 @@ paths:
       - apiKeyAuth: []
   /operating_systems/{id}:
     get:
+      operationId: itglue_get_operating_systems_by_id
       summary: ''
       description: 'Returns the details of one of the supported operating systems.
 
@@ -9400,6 +9506,7 @@ paths:
       - apiKeyAuth: []
   /organization_statuses:
     get:
+      operationId: itglue_get_organization_statuses
       summary: ''
       description: 'Returns a list of the organization statuses in your account.
 
@@ -9461,6 +9568,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_organization_statuses
       summary: ''
       description: Creates a new organization status in your account. Returns the
         created object if successful.
@@ -9508,6 +9616,7 @@ paths:
       - apiKeyAuth: []
   /organization_statuses/{id}:
     get:
+      operationId: itglue_get_organization_statuses_by_id
       summary: ''
       description: 'Returns the details of an existing organization status.
 
@@ -9556,6 +9665,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_organization_statuses
       summary: ''
       description: Updates an organization status in your account. Returns 422 Bad
         Request error if trying to update an         externally synced record.
@@ -9610,6 +9720,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_organization_statuses
       summary: ''
       description: Delete the given organization status. Returns 204 if successful.
         Statuses actively synced with an adapter cannot be deleted (423). Statuses
@@ -9645,6 +9756,7 @@ paths:
       - apiKeyAuth: []
   /organization_types:
     get:
+      operationId: itglue_get_organization_types
       summary: ''
       description: 'Returns a list of organization types in your account.
 
@@ -9706,6 +9818,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_organization_types
       summary: ''
       description: Creates a new organization type in your account. Returns the created
         object if successful.
@@ -9753,6 +9866,7 @@ paths:
       - apiKeyAuth: []
   /organization_types/{id}:
     get:
+      operationId: itglue_get_organization_types_by_id
       summary: ''
       description: 'Returns the details of an existing organization type.
 
@@ -9801,6 +9915,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_organization_types
       summary: ''
       description: Updates an organization type in your account. Returns 422 Bad Request
         error if trying to update an         externally synced record.
@@ -9855,6 +9970,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_organization_types
       summary: ''
       description: Delete the given organization type. Returns 204 if successful.
         Types actively synced with an adapter cannot be deleted (423). Types referenced
@@ -9889,6 +10005,7 @@ paths:
       - apiKeyAuth: []
   /organizations:
     get:
+      operationId: itglue_get_organizations
       summary: ''
       description: 'Returns a list of organizations in your account.
 
@@ -10081,6 +10198,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_organizations
       summary: ''
       description: Creates an organization. Returns the created object if successful.
       parameters:
@@ -10174,6 +10292,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_organizations
       summary: ''
       description: 'Updates a list of organizations, also known as bulk updating.
         Bulk updates using a nested relationships         route are not supported.
@@ -10396,6 +10515,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_organizations
       summary: ''
       description: Marks organizations identified by the specified organization IDs
         for deletion. Because it can be a long procedure to delete organizations,
@@ -10570,6 +10690,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{id}:
     get:
+      operationId: itglue_get_organizations_by_id
       summary: ''
       description: 'Returns the details of an existing organization.
 
@@ -10627,6 +10748,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_organizations_by_id
       summary: ''
       description: 'Updates the details of an existing organization. Returns 422 Bad
         Request         error if trying to update an externally synced record on attributes          other
@@ -10731,6 +10853,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/checklists:
     get:
+      operationId: itglue_get_organizations_relationships_checklists
       summary: ''
       description: 'Returns a list of checklists in your account.
 
@@ -10816,6 +10939,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_organizations_relationships_checklists
       summary: ''
       description: Updates a list of checklists.
       parameters:
@@ -10931,6 +11055,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_organizations_relationships_checklists
       summary: ''
       description: Deletes one or more specified checklists.
       parameters:
@@ -10999,6 +11124,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/checklists/{id}:
     get:
+      operationId: itglue_get_organizations_relationships_checklists_by_id
       summary: ''
       description: 'Returns the details of an existing checklist.
 
@@ -11065,6 +11191,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_organizations_relationships_checklists_by_id
       summary: ''
       description: Updates an existing checklist. Returns the updated object if successful.
       parameters:
@@ -11178,6 +11305,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/configurations:
     get:
+      operationId: itglue_get_organizations_relationships_configurations
       summary: ''
       description: 'Returns a list of configurations for all organizations or for
         a specified organization.
@@ -11338,6 +11466,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_organizations_relationships_configurations
       summary: ''
       description: Creates a configuration under the organization specified in the
         ID parameter. Returns the created object         if successful. Use the nested
@@ -11627,6 +11756,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_organizations_relationships_configurations
       summary: ''
       description: Deletes one or more specified configurations. Returns the deleted
         configurations and a 200 status code if successful.
@@ -11787,6 +11917,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/configurations/{id}:
     get:
+      operationId: itglue_get_organizations_relationships_configurations_by_id
       summary: ''
       description: 'Returns the details of an existing configuration.
 
@@ -11853,6 +11984,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_organizations_relationships_configurations
       summary: ''
       description: 'Updates the details of an existing configuration.         Returns
         422 Unprocessable Entity error if any relationships are present in the request.         Returns
@@ -12084,6 +12216,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/contacts:
     get:
+      operationId: itglue_get_organizations_relationships_contacts
       summary: ''
       description: 'Returns a list of contacts for all organizations or for a specified
         organization.
@@ -12219,6 +12352,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_organizations_relationships_contacts
       summary: ''
       description: Creates a contact under the organization specified in the organization_id
         parameter.        Returns the created object if successful. Use the nested
@@ -12413,6 +12547,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_organizations_relationships_contacts
       summary: ''
       description: Deletes one or more specified contacts. Returns the deleted contacts
         and a 200 status code if successful.
@@ -12551,6 +12686,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/contacts/{id}:
     get:
+      operationId: itglue_get_organizations_relationships_contacts_by_id
       summary: ''
       description: 'Returns the details of an existing contact.
 
@@ -12617,6 +12753,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_organizations_relationships_contacts
       summary: ''
       description: Updates the details of an existing contact. Returns 422 Bad Request
         error if trying to update an         externally synced record.
@@ -12816,6 +12953,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/document_folders:
     get:
+      operationId: itglue_get_organizations_relationships_document_folders
       summary: ''
       description: 'Returns a list of document folders for a specified organization.
 
@@ -12892,6 +13030,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_organizations_relationships_document_folders
       summary: ''
       description: Creates a new document folder under the organization specified
         in the ID parameter. Returns the created object if successful.
@@ -12980,6 +13119,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_organizations_relationships_document_folders
       summary: ''
       description: Deletes one or more specified document folders. Returns the deleted
         document folders and a 200 status code if successful. Returns 422 Unprocessable
@@ -13071,6 +13211,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/document_folders/{id}:
     get:
+      operationId: itglue_get_organizations_relationships_document_folders_by_id
       summary: ''
       description: 'Returns the details of an existing document folder.
 
@@ -13137,6 +13278,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_organizations_relationships_document_folders
       summary: ''
       description: Updates the details of an existing document folder.
       parameters:
@@ -13231,6 +13373,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/documents:
     get:
+      operationId: itglue_get_organizations_relationships_documents
       summary: ''
       description: 'Returns a list of documents for a specified organization.
 
@@ -13302,6 +13445,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_organizations_relationships_documents
       summary: ''
       description: Creates a new document under the organization specified in the
         ID parameter. Returns the created object if successful.
@@ -13455,6 +13599,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_organizations_relationships_documents
       summary: ''
       description: Deletes one or more specified documents. Returns the deleted documents
         and a 200 status code if successful.
@@ -13609,6 +13754,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/documents/{id}:
     get:
+      operationId: itglue_get_organizations_relationships_documents_by_id
       summary: ''
       description: 'Endpoint to retrieve complete document information including all
         sections and embedded content.
@@ -13676,6 +13822,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_organizations_relationships_documents
       summary: ''
       description: Updates an existing document. Returns the updated object if successful.
       parameters:
@@ -13788,6 +13935,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/documents/{id}/publish:
     patch:
+      operationId: itglue_patch_organizations_relationships_documents_publish
       summary: ''
       description: Publishes a document by setting the published_at timestamp, the
         publisher information, and serializing the document's content.
@@ -13826,6 +13974,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/domains:
     get:
+      operationId: itglue_get_organizations_relationships_domains
       summary: ''
       description: 'Returns a list of domains for all organizations or for a specified
         organization.
@@ -13913,6 +14062,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/expirations:
     get:
+      operationId: itglue_get_organizations_relationships_expirations
       summary: ''
       description: 'Returns a list of expirations for all organizations or for a specified
         organization.
@@ -14038,6 +14188,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/expirations/{id}:
     get:
+      operationId: itglue_get_organizations_relationships_expirations_by_id
       summary: ''
       description: 'Returns a single expiration with the given ID or a single expiration
         for a specified organization.
@@ -14097,6 +14248,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/flexible_assets:
     post:
+      operationId: itglue_post_organizations_relationships_flexible_assets
       summary: ''
       description: Creates a new flexible asset.
       parameters:
@@ -14177,6 +14329,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/locations:
     get:
+      operationId: itglue_get_organizations_relationships_locations
       summary: ''
       description: 'Returns a list of locations for all organizations or for a specified
         organization.
@@ -14302,6 +14455,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_organizations_relationships_locations
       summary: ''
       description: Creates a new location under the specified organization. The :organization_id
         is specified         in the URL or in the request body for `/locations` route.
@@ -14441,6 +14595,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/locations/{id}:
     get:
+      operationId: itglue_get_organizations_relationships_locations_by_id
       summary: ''
       description: 'Returns the details of an existing location.
 
@@ -14507,6 +14662,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_organizations_relationships_locations
       summary: ''
       description: Updates the details of an existing location. Returns 422 Bad Request
         error if trying to update an         externally synced record.
@@ -14649,6 +14805,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_organizations_relationships_locations
       summary: ''
       description: Deletes one or more specified locations. Returns the deleted locations
         and a 200 status code if successful.
@@ -14778,6 +14935,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/password_folders:
     get:
+      operationId: itglue_get_organizations_relationships_password_folders
       summary: ''
       description: 'Returns a list of password folders for a specified organization.
 
@@ -14854,6 +15012,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_organizations_relationships_password_folders
       summary: ''
       description: Creates a new password folder under the organization specified
         in the ID parameter. Returns the created object if successful.
@@ -14936,6 +15095,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_organizations_relationships_password_folders
       summary: ''
       description: Deletes one or more specified password folders. Returns the deleted
         password folders and a 200 status code if successful. Returns 422 Unprocessable
@@ -15027,6 +15187,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/password_folders/{id}:
     get:
+      operationId: itglue_get_organizations_relationships_password_folders_by_id
       summary: ''
       description: 'Returns the details of an existing password folder.
 
@@ -15093,6 +15254,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_organizations_relationships_password_folders
       summary: ''
       description: Updates the details of an existing password folder.
       parameters:
@@ -15181,6 +15343,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/passwords:
     get:
+      operationId: itglue_get_organizations_relationships_passwords
       summary: ''
       description: 'Returns a list of passwords for all organizations or for a specified
         organization.
@@ -15305,6 +15468,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_organizations_relationships_passwords
       summary: ''
       description: Creates a password under the organization specified in the ID parameter.
         Returns the created object if successful. Use the nested relationships route
@@ -15526,6 +15690,7 @@ paths:
       - apiKeyAuth: []
   /organizations/{organization_id}/relationships/passwords/{id}:
     get:
+      operationId: itglue_get_organizations_relationships_passwords_by_id
       summary: ''
       description: 'Returns the details of an existing password.
 
@@ -15607,6 +15772,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_organizations_relationships_passwords
       summary: ''
       description: Updates the details of an existing password.
       parameters:
@@ -15772,6 +15938,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_organizations_relationships_passwords
       summary: ''
       description: Deletes one or more specified passwords. Returns the deleted passwords
         and a 200 status code if successful.
@@ -15903,6 +16070,7 @@ paths:
       - apiKeyAuth: []
   /password_categories:
     get:
+      operationId: itglue_get_password_categories
       summary: ''
       description: 'Returns a list of password categories in your account.
 
@@ -15964,6 +16132,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_password_categories
       summary: ''
       description: Creates a new password category in your account. Returns the created
         object if successful.
@@ -16011,6 +16180,7 @@ paths:
       - apiKeyAuth: []
   /password_categories/{id}:
     get:
+      operationId: itglue_get_password_categories_by_id
       summary: ''
       description: 'Returns the details of an existing password category.
 
@@ -16059,6 +16229,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_password_categories
       summary: ''
       description: Updates a password category in your account.
       parameters:
@@ -16113,6 +16284,7 @@ paths:
       - apiKeyAuth: []
   /password_folders:
     patch:
+      operationId: itglue_patch_password_folders
       summary: ''
       description: Updates a list of password folders, also known as bulk updating.
         Bulk updates using a nested relationships route are not supported.
@@ -16216,6 +16388,7 @@ paths:
       - apiKeyAuth: []
   /passwords:
     get:
+      operationId: itglue_get_passwords
       summary: ''
       description: 'Returns a list of passwords for all organizations or for a specified
         organization.
@@ -16340,6 +16513,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_passwords
       summary: ''
       description: Creates a password under the organization specified in the ID parameter.
         Returns the created object if successful. Use the nested relationships route
@@ -16560,6 +16734,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_passwords
       summary: ''
       description: Updates a list of passwords, also known as bulk updating. Bulk
         updates using a nested relationships route are not supported.
@@ -16721,6 +16896,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_passwords
       summary: ''
       description: Deletes one or more specified passwords. Returns the deleted passwords
         and a 200 status code if successful.
@@ -16846,6 +17022,7 @@ paths:
       - apiKeyAuth: []
   /passwords/{id}:
     get:
+      operationId: itglue_get_passwords_by_id
       summary: ''
       description: 'Returns the details of an existing password.
 
@@ -16927,6 +17104,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_passwords_by_id
       summary: ''
       description: Updates the details of an existing password.
       parameters:
@@ -17092,6 +17270,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_passwords_by_id
       summary: ''
       description: Destroys a single password with its ID. Returns a 204 status code
         if successful.
@@ -17117,6 +17296,7 @@ paths:
       - apiKeyAuth: []
   /platforms:
     get:
+      operationId: itglue_get_platforms
       summary: ''
       description: 'Returns a list of supported platforms.
 
@@ -17179,6 +17359,7 @@ paths:
       - apiKeyAuth: []
   /platforms/{id}:
     get:
+      operationId: itglue_get_platforms_by_id
       summary: ''
       description: 'Returns details of one of the supported platforms.
 
@@ -17228,6 +17409,7 @@ paths:
       - apiKeyAuth: []
   /regions:
     get:
+      operationId: itglue_get_regions
       summary: ''
       description: 'Returns a list of supported regions.
 
@@ -17311,6 +17493,7 @@ paths:
       - apiKeyAuth: []
   /regions/{id}:
     get:
+      operationId: itglue_get_regions_by_id
       summary: ''
       description: 'Returns the details of one of the supported regions.
 
@@ -17369,6 +17552,7 @@ paths:
       - apiKeyAuth: []
   /user_metrics:
     get:
+      operationId: itglue_get_user_metrics
       summary: ''
       description: 'Returns a list of the user metrics in your account.
 
@@ -17452,6 +17636,7 @@ paths:
       - apiKeyAuth: []
   /users:
     get:
+      operationId: itglue_get_users
       summary: ''
       description: 'Returns a list of the users in your account.
 
@@ -17537,6 +17722,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_users
       summary: ''
       description: Updates multiple users in a single request with the 'Allow All
         Organizations' feature. This endpoint supports partial success, where some
@@ -17597,6 +17783,7 @@ paths:
       - apiKeyAuth: []
   /users/{id}:
     get:
+      operationId: itglue_get_users_by_id
       summary: ''
       description: 'Returns information about one user. When the `check_authorization`
         parameter is provided, the response includes a `resource-authorizations` attribute
@@ -17658,6 +17845,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_users_by_id
       summary: ''
       description: Updates the name or profile picture (avatar) of an existing user.
       parameters:
@@ -17750,6 +17938,7 @@ paths:
       - apiKeyAuth: []
   /{resource_type}/{resource_id}/relationships/attachments:
     get:
+      operationId: itglue_get_relationships_attachments
       summary: ''
       description: 'Returns a list of attachments for the specified resource. The
         attachments         are returned in the order they were created, with the
@@ -17809,6 +17998,7 @@ paths:
       security:
       - apiKeyAuth: []
     post:
+      operationId: itglue_post_relationships_attachments
       summary: ''
       description: Attaches a file to the asset specified in the ID parameter. Returns         the
         created object if successful. Can also be used to add multiple         attachments
@@ -17876,6 +18066,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_relationships_attachments
       summary: ''
       description: Deletes one or more specified attachments. Returns the deleted
         attachments         and a 200 status code if successful.
@@ -17951,6 +18142,7 @@ paths:
       - apiKeyAuth: []
   /{resource_type}/{resource_id}/relationships/attachments/{id}:
     get:
+      operationId: itglue_get_relationships_attachments_by_id
       summary: ''
       description: 'Returns the details of a specific attachment identified by its
         ID.         The attachment must belong to the specified parent resource.
@@ -18016,6 +18208,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_relationships_attachments
       summary: ''
       description: Updates the details of an existing attachment. Only the attachment
         name that         is displayed on the asset view screen can be changed. The
@@ -18093,6 +18286,7 @@ paths:
       - apiKeyAuth: []
   /{resource_type}/{resource_id}/relationships/related_items:
     post:
+      operationId: itglue_post_relationships_related_items
       summary: ''
       description: Creates a related item. Returns the created object if successful.         Can
         also be used to add multiple related items to an asset in bulk.
@@ -18182,6 +18376,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_relationships_related_items
       summary: ''
       description: Deletes one or more specified related items. Returns the deleted
         related items         and a 200 status code if successful.
@@ -18257,6 +18452,7 @@ paths:
       - apiKeyAuth: []
   /{resource_type}/{resource_id}/relationships/related_items/{id}:
     patch:
+      operationId: itglue_patch_relationships_related_items
       summary: ''
       description: Updates the details of an existing related item. Only the related
         item notes         that are displayed on the asset view screen can be changed.
@@ -18333,6 +18529,7 @@ paths:
       - apiKeyAuth: []
   /{resource_type}/{resource_id}/relationships/resource_accesses:
     post:
+      operationId: itglue_post_relationships_resource_accesses
       summary: ''
       description: Add user/group resource accesses to the resource specified in the
         ID parameter.         All user/groups accessible by an API key can be used
@@ -18398,6 +18595,7 @@ paths:
       security:
       - apiKeyAuth: []
     patch:
+      operationId: itglue_patch_relationships_resource_accesses
       summary: ''
       description: "Edit user/group resource accesses to a resource. The â\x80\x9C\
         accessor-typeâ\x80\x9D can be â\x80\x9CUserâ\x80\x9D or â\x80\x9CGroupâ\x80\
@@ -18479,6 +18677,7 @@ paths:
       security:
       - apiKeyAuth: []
     delete:
+      operationId: itglue_delete_relationships_resource_accesses
       summary: ''
       description: Deletes one or more specified resource accesses. Returns the deleted
         resource accesses         and a 200 status code if successful.

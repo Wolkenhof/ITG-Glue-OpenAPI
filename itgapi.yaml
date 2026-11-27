@@ -13018,6 +13018,14 @@ paths:
         required: false
         schema:
           type: object
+      - name: with_total_documents_count
+        in: query
+        description: 'When true, adds ''total-documents-count'' to each folder: non-archived
+          documents in the folderand all subfolders the user can see.Validations:Must
+          be one of:true,false,1,0.Metadata:Param Type: Query Parameter'
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -13213,7 +13221,8 @@ paths:
     get:
       operationId: itglue_get_organizations_relationships_document_folders_by_id
       summary: ''
-      description: 'Returns the details of an existing document folder.
+      description: 'Returns the details of an existing document folder. total-documents-count
+        is only returned when with_total_documents_count=true is passed.
 
 
         Note: The maximum number of results that can be requested is 1000. If your
@@ -13261,6 +13270,14 @@ paths:
           Type: CGI
 
           Notes: Comma separated values'
+        required: false
+        schema:
+          type: string
+      - name: with_total_documents_count
+        in: query
+        description: 'When true, adds ''total-documents-count'': non-archived documents
+          in the folderand all subfolders the user can see.Validations:Must be one
+          of:true,false,1,0.Metadata:Param Type: Query Parameter'
         required: false
         schema:
           type: string
@@ -13421,6 +13438,12 @@ paths:
         schema:
           type: object
       - name: filter[document_folder_id]
+        in: query
+        description: Validations:Must be a number.
+        required: false
+        schema:
+          type: integer
+      - name: filter[document_id]
         in: query
         description: Validations:Must be a number.
         required: false
@@ -15007,6 +15030,15 @@ paths:
         required: false
         schema:
           type: object
+      - name: with_total_passwords_count
+        in: query
+        description: 'When true, adds ''total-passwords-count'' to each folder: non-archived
+          passwords the user can seein the folder and all subfolders the user can
+          see.Validations:Must be one of:true,false,1,0.Metadata:Param Type: Query
+          Parameter'
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -15196,7 +15228,8 @@ paths:
     get:
       operationId: itglue_get_organizations_relationships_password_folders_by_id
       summary: ''
-      description: 'Returns the details of an existing password folder.
+      description: 'Returns the details of an existing password folder. total-passwords-count
+        is only returned when with_total_passwords_count=true is passed.
 
 
         Note: The maximum number of results that can be requested is 1000. If your
@@ -15244,6 +15277,14 @@ paths:
           Type: CGI
 
           Notes: Comma separated values'
+        required: false
+        schema:
+          type: string
+      - name: with_total_passwords_count
+        in: query
+        description: 'When true, adds ''total-passwords-count'': non-archived passwords
+          the user can see in the folderand all subfolders the user can see.Validations:Must
+          be one of:true,false,1,0.Metadata:Param Type: Query Parameter'
         required: false
         schema:
           type: string
